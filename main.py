@@ -2,38 +2,52 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(layout="wide")
-col1, col2 = st.columns(2)
+col1, empty_col2, col2 = st.columns([2.0,0.2,2.0])
 
 with col1:
-    st.image("images/me4.png")
+    st.image("./images/me5.png")
+
 
 with col2:
     st.title("Mario Umaña")
     st.write("")
     about_me = """
-    Mi nombre es Mario, tengo 19 años y vivo en El Salvador. Soy un programador especializado en Python, actualmente estudiante de tercer año de Ingenieria informática en la Universidad José Simeón Cañas. Una de mis mayores pasiones es la tecnología, los datos y todo lo que se puede llegar a lograr teniendo conocimientos de ambos para optimizar nuestro entorno. 
+    
+    My name is Mario, I am 19 years old, and I live in El Salvador. I am a Python specialist and currently a third-year student of Computer Engineering at José Simeón Cañas University. One of my greatest passions is technology, data, and everything that can be achieved by having knowledge of both to optimize our environment.
     \n
-    Trato de aprender algo nuevo siempre que puedo, mis hobbies varian mucho, incluyendo pasteleria, leer, hacer música y hacer caminatas en lugares fuera de la ciudad.
+    I strive to learn something new whenever I can. My hobbies vary widely, including baking, reading, making music, and taking hikes in places outside the city.
     """
     st.info(about_me)
 
 st.write("")
 st.write("")
 page_content_information = """
-Abajo puedes encontrar algunas de las aplicaciones que he construido con Python -
-¡Puedes contactarme en cualquier momento!
+Below you can find some of the applications I have built using Python.
 """
+contact_me_plain_text = "You can contact me at any time!"
+
 st.write(f"<h5 style= 'text-align: center;color:gray;'>{page_content_information}</h5>", unsafe_allow_html=True)
+st.write(f"<h5 style= 'text-align: center;color:gray;'>{contact_me_plain_text}</h5>", unsafe_allow_html=True)
+st.write("")
 st.write("")
 
-col3, col4 = st.columns(2)
+col3, empty_col, col4 = st.columns([1.5,0.5,1.5])
 df = pd.read_csv("data.csv", sep=";")
 
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row["title"])
+        st.write(row["description"])
+        st.image("./images/" + row["image"])
+        st.write("[Source Code](https://github.com/Mburg03?tab=repositories)")
+        st.write("")
+
 
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row["title"])
-        
+        st.write(row["description"])
+        st.image("./images/" + row["image"])
+        st.write("[Source Code](https://github.com/Mburg03?tab=repositories)")        
+        st.write("")
+                
