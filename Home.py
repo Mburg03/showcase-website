@@ -29,7 +29,7 @@ st.write("")
 page_content_information = """
 Below you can find some of the applications I have built using Python.
 """
-contact_me_plain_text = "You can contact me at any time!"
+contact_me_plain_text = "Feel free to can contact me at any time!"
 
 st.write(f"<h5 style= 'text-align: center;color:gray;'>{page_content_information}</h5>", unsafe_allow_html=True)
 st.write(f"<h5 style= 'text-align: center;color:gray;'>{contact_me_plain_text}</h5>", unsafe_allow_html=True)
